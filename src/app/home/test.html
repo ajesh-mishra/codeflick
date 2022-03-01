@@ -1,0 +1,20 @@
+<pre class="hljs"
+  style="display: block; overflow-x: auto; background: rgb(29, 31, 33); color: rgb(197, 200, 198); padding: 0.5em;"><span class="hljs-class"><span class="hljs-keyword" style="color: rgb(178, 148, 187);">class</span> <span class="hljs-title" style="color: rgb(129, 162, 190);">Solution</span>:</span>
+  <span class="hljs-function"><span class="hljs-keyword" style="color: rgb(178, 148, 187);">def</span> <span class="hljs-title" style="color: rgb(129, 162, 190);">findNumbers</span><span class="hljs-params" style="color: rgb(222, 147, 95);">(self, nums: list[int])</span> -&gt; int:</span>
+    result: int = <span class="hljs-number" style="color: rgb(222, 147, 95);">0</span>
+
+    <span class="hljs-keyword" style="color: rgb(178, 148, 187);">for</span> num <span class="hljs-keyword" style="color: rgb(178, 148, 187);">in</span> nums:
+      num_digits: int = len(str(num))
+      <span class="hljs-keyword" style="color: rgb(178, 148, 187);">if</span> num_digits % <span class="hljs-number" style="color: rgb(222, 147, 95);">2</span> == <span class="hljs-number" style="color: rgb(222, 147, 95);">0</span>:
+        result += <span class="hljs-number" style="color: rgb(222, 147, 95);">1</span>
+
+    <span class="hljs-keyword" style="color: rgb(178, 148, 187);">return</span> result
+
+<span class="hljs-keyword" style="color: rgb(178, 148, 187);">if</span> __name__ == <span class="hljs-string" style="color: rgb(181, 189, 104);">'__main__'</span>:
+  input: list[int] = [<span class="hljs-number" style="color: rgb(222, 147, 95);">12</span>, <span class="hljs-number" style="color: rgb(222, 147, 95);">2290</span>, <span class="hljs-number" style="color: rgb(222, 147, 95);">2437</span>, <span class="hljs-number" style="color: rgb(222, 147, 95);">3</span>]
+  s = Solution()
+  print(s.findNumbers(input))</pre>
+
+
+<span class="hljs-class"><span class="hljs-keyword" style="color: rgb(178, 148, 187);">class</span> <span
+    class="hljs-title" style="color: rgb(129, 162, 190);">Solution</span>:</span>

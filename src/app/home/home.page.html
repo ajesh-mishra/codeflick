@@ -1,0 +1,98 @@
+<!-- <div>
+  <div #container *ngFor="let message of messages.slice().reverse()">
+    <ng-container *ngFor="let flick of message.flickPositions; let flicks = index">
+
+      <ng-container *ngIf="numFlicks === flicks">
+        <div class="flick-container">
+          <div class="flick-header">
+            <span class="heading">{{ flick.description }}</span>
+          </div>
+          <div class="flick-body">
+            <div class="flick-code">
+              <div [@fadeAnimation] *ngFor="let lineNum of lineNumInFlick">
+                <ng-container *ngIf="message.codes[lineNum] == ''">
+                  <br>
+                </ng-container>
+                <ng-container *ngIf="message.codes[lineNum] != ''">
+                  <app-prism [code]="message.codes[lineNum]" [language]="python"></app-prism>
+                </ng-container>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+
+    </ng-container>
+  </div>
+</div> -->
+
+<!-- Working with full page fade animation -->
+<div>
+  <div #container *ngFor="let message of messages.slice().reverse()">
+    <ng-container *ngFor="let flick of message.flickPositions; let flicks = index">
+
+      <ng-container *ngIf="numFlicks === flicks">
+        <div class="flick-container">
+          <div class="flick-header">
+            <span class="heading">{{ flick.description }}</span>
+          </div>
+          <div class="flick-body">
+            <div class="flick-code">
+              <div *ngFor="let code of message.codes; let lineNum = index">
+                <ng-container
+                  *ngIf="flick.index.includes(lineNum) && message.codes[lineNum] == ''">
+                  <br>
+                </ng-container>
+                <span 
+                  *ngIf="flick.index.includes(lineNum) && message.codes[lineNum] != ''">
+                  <app-prism [needsHighlight]="flicks !== 0 && !message.flickPositions[flicks - 1].index.includes(lineNum)"
+                  [code]="message.codes[lineNum]" [language]="python"></app-prism>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+
+    </ng-container>
+  </div>
+</div>
+
+
+<!-- [ngClass]="{'lineHighlight': !message.flickPositions[flicks - 1].index.includes(lineNum)}" -->
+
+<!-- Working with messages variable -->
+<!-- <div>
+  <div #container *ngFor="let message of messages.slice().reverse()">
+
+    <div class="flick-container">
+      <div class="flick-header">
+        <span class="heading">{{ message.fromName }}</span>
+      </div>
+
+      <div class="flick-body">
+        <div>
+          <span *ngFor="let code of message.codes">
+            <ng-container *ngIf="code.flickCount <= numFlicks">
+              <span>{{ code.flickCount }}</span>
+              <span>{{ code.line }}</span><br>
+            </ng-container>
+          </span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div> -->
+
+
+
+
+
+<!-- <div>
+  <app-message #CurrentFlick class="currentMessage" [message]="currentMessage" [numFlicks]="numFlicks">
+  </app-message>
+
+  <app-message #NextFlick class="nextMessage" [message]="nextMessage" [numFlicks]="numFlicks">
+  </app-message>
+</div> -->
